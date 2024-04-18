@@ -1,0 +1,41 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mobile_nav"
+        app:startDestination="@id/splashFragment">
+
+        <fragment
+            android:id="@+id/splashFragment"
+            android:name="com.marazanil.marasigeziyorum.view.ui.fragment.splashFragment.SplashFragment"
+            android:label="fragment_splash"
+            tools:layout="@layout/fragment_splash">
+            <action
+                android:id="@+id/action_splashFragment_to_fragmentLogin"
+                app:destination="@id/fragmentLogin" />
+        </fragment>
+
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.marazanil.marasigeziyorum.view.ui.fragment.loginFragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.marazanil.marasigeziyorum.view.ui.fragment.registerFragment.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+
+    </fragment>
+
+
+
+
+</navigation>
