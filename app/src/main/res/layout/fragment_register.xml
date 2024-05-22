@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/etName"
+        android:id="@+id/etFirstName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -33,14 +33,14 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
-        android:id="@+id/etSurname"
+        android:id="@+id/etLastName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Soyisim"
-        app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintStart_toStartOf="@+id/etName"
-        app:layout_constraintEnd_toEndOf="@+id/etName"/>
+        app:layout_constraintTop_toBottomOf="@+id/etFirstName"
+        app:layout_constraintStart_toStartOf="@+id/etFirstName"
+        app:layout_constraintEnd_toEndOf="@+id/etFirstName"/>
 
     <EditText
         android:id="@+id/etUsername"
@@ -48,9 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Kullanıcı Adı"
-        app:layout_constraintTop_toBottomOf="@+id/etSurname"
-        app:layout_constraintStart_toStartOf="@+id/etSurname"
-        app:layout_constraintEnd_toEndOf="@+id/etSurname"/>
+        app:layout_constraintTop_toBottomOf="@+id/etLastName"
+        app:layout_constraintStart_toStartOf="@+id/etLastName"
+        app:layout_constraintEnd_toEndOf="@+id/etLastName"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="@+id/etUsername"/>
 
     <EditText
-        android:id="@+id/etPasswordAgain"
+        android:id="@+id/etConfirmPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -81,7 +81,19 @@
         android:layout_marginTop="24dp"
         android:text="Kayıt Ol"
         android:backgroundTint="#1889BC"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordAgain"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordAgain"
-        app:layout_constraintEnd_toEndOf="@+id/etPasswordAgain"/>
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword"
+        app:layout_constraintStart_toStartOf="@+id/etConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etConfirmPassword"/>
+
+    <Button
+        android:id="@+id/btnTurnBackLoginPage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:backgroundTint="#BC1818"
+        android:text="Geri Dön"
+        app:layout_constraintEnd_toEndOf="@+id/etConfirmPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etConfirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

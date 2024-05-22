@@ -1,18 +1,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/mobile_nav"
-        app:startDestination="@id/splashFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_nav"
+    app:startDestination="@id/splashFragment">
 
-        <fragment
-            android:id="@+id/splashFragment"
-            android:name="com.marazanil.marasigeziyorum.view.ui.fragment.splashFragment.SplashFragment"
-            android:label="fragment_splash"
-            tools:layout="@layout/fragment_splash">
-            <action
-                android:id="@+id/action_splashFragment_to_fragmentLogin"
-                app:destination="@id/fragmentLogin" />
-        </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.marazanil.marasigeziyorum.view.ui.fragment.splashFragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragmentLogin"
@@ -22,6 +22,11 @@
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentRegister"
             app:destination="@id/fragmentRegister" />
+        <action
+            android:id="@+id/actionLoginFragmentToMainActivity"
+            app:destination="@id/fragmentPlaces"
+            app:popUpTo="@id/fragmentLogin"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -32,10 +37,15 @@
         <action
             android:id="@+id/action_fragmentRegister_to_fragmentLogin"
             app:destination="@id/fragmentLogin" />
-
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentLoginPage"
+            app:destination="@id/fragmentLogin" />
     </fragment>
 
-
-
+    <fragment
+        android:id="@+id/fragmentPlaces"
+        android:name="com.marazanil.marasigeziyorum.view.ui.fragment.placeListFragment.PlacesFragment"
+        android:label="fragment_places"
+        tools:layout="@layout/fragment_places" />
 
 </navigation>
