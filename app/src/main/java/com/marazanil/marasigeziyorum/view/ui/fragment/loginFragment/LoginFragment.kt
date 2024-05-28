@@ -1,28 +1,24 @@
 package com.marazanil.marasigeziyorum.view.ui.fragment.loginFragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.marazanil.marasigeziyorum.R
 import com.marazanil.marasigeziyorum.databinding.FragmentLoginBinding
-import com.marazanil.marasigeziyorum.data.db.AppDatabase
-import com.marazanil.marasigeziyorum.viewmodel.UserViewModel
-import com.marazanil.marasigeziyorum.viewmodel.UserViewModelFactory
-import android.widget.Toast
-import com.marazanil.marasigeziyorum.data.repo.UserRepository
+import com.marazanil.marasigeziyorum.viewModel.UserViewModel
+import com.marazanil.marasigeziyorum.viewModel.UserViewModelFactory
+
 
 class LoginFragment : Fragment() {
-
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val userViewModel: UserViewModel by viewModels {
-        val userDao = AppDatabase.getDatabase(requireContext()).userDao()
-        UserViewModelFactory(UserRepository(userDao))
-    }
+    private val userViewModel: UserViewModel by viewModels { UserViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,39 +32,22 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnLogin.setOnClickListener {
-            loginUser()
-        }
-        binding.btnToRegisterScreen.setOnClickListener {
-            navigateToRegister()
-        }
-    }
+            val username = binding.etUsername.text.toString()
+            val password = binding.etPassword.text.toString()
 
-    private fun loginUser() {
-        val username = binding.etUsername.text.toString()
-        val password = binding.etPassword.text.toString()
-
-        if (username.isNotEmpty() && password.isNotEmpty()) {
-            userViewModel.getUserByUsername(username) { user ->
-                if (user != null && user.password == password) {
-                    Toast.makeText(requireContext(), "Giriş Başarılı!", Toast.LENGTH_SHORT).show()
-                    navigateToMainActivity()
+            userViewModel.loginUser(username, password) { success ->
+                if (success) {
+                    Toast.makeText(requireContext(), "Login successful", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.actionLoginFragmentToMainActivity)
                 } else {
-                    Toast.makeText(requireContext(), "Geçersiz Şifre ya da Kullanıcı Adı", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show()
                 }
             }
-        } else {
-            Toast.makeText(requireContext(), "Lütfen Tüm Alanları Doldurunuz!", Toast.LENGTH_SHORT).show()
         }
-    }
 
-    private fun navigateToMainActivity() {
-        val action = LoginFragmentDirections.actionLoginFragmentToMainActivity()
-        findNavController().navigate(action)
-    }
-
-    private fun navigateToRegister() {
-        val action = LoginFragmentDirections.actionFragmentLoginToFragmentRegister()
-        findNavController().navigate(action)
+        binding.btnToRegisterScreen.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentRegister)
+        }
     }
 
     override fun onDestroyView() {
@@ -76,3 +55,4 @@ class LoginFragment : Fragment() {
         _binding = null
     }
 }
+

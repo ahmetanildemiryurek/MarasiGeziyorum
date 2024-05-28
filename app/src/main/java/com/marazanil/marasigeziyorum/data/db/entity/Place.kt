@@ -1,13 +1,9 @@
 package com.marazanil.marasigeziyorum.data.db.entity
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "places")
 data class Place(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,
-    val description: String,
-    val category: String,
-    val imageUrl: String
+    var id: String = "",
+    var name: String = "",
+    var imageUrl: String = "",
+    var description: String = "",
+    var category: String = ""
 )

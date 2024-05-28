@@ -1,13 +1,10 @@
 package com.marazanil.marasigeziyorum.data.db.entity
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "users")
 data class User(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val firstName: String,
-    val lastName: String,
-    val username: String,
-    val password: String
+    var id: String = "",
+    var firstName: String = "",
+    var lastName: String = "",
+    var username: String = "",
+    var password: String = ""
 )
+

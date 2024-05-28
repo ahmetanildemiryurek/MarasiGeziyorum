@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823912368753",
+    "project_id": "marasigeziyorum",
+    "storage_bucket": "marasigeziyorum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823912368753:android:d4be5b8749571e4e2b29d0",
+        "android_client_info": {
+          "package_name": "com.marazanil.marasigeziyorum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw_5QnUhELJhOPnDbIKBVQK97sMG8vHXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

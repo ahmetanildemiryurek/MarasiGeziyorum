@@ -1,30 +1,51 @@
-package com.marazanil.marasigeziyorum.viewmodel
+package com.marazanil.marasigeziyorum.viewModel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.marazanil.marasigeziyorum.data.db.entity.User
 import com.marazanil.marasigeziyorum.data.repo.UserRepository
-import kotlinx.coroutines.launch
 
-class UserViewModel(private val repository: UserRepository) : ViewModel() {
+class UserViewModel : ViewModel() {
 
-    fun insertUser(user: User) {
-        viewModelScope.launch {
-            repository.insertUser(user)
+    private val userRepository = UserRepository()
+
+    private val _user = MutableLiveData<User?>()
+    val user: LiveData<User?> get() = _user
+
+    fun registerUser(firstName: String, lastName: String, username: String, password: String, callback: (Boolean) -> Unit) {
+        userRepository.registerUser(firstName, lastName, username, password) { success ->
+            if (success) {
+                userRepository.getUserDataByUsername(username) { userData ->
+                    _user.value = userData
+                    callback(success)
+                }
+            } else {
+                callback(success)
+            }
         }
     }
 
-    fun getUserByUsername(username: String, callback: (User?) -> Unit) {
-        viewModelScope.launch {
-            val user = repository.getUserByUsername(username)
-            callback(user)
+    fun loginUser(username: String, password: String, callback: (Boolean) -> Unit) {
+        userRepository.loginUser(username, password) { success ->
+            if (success) {
+                userRepository.getUserDataByUsername(username) { userData ->
+                    _user.value = userData
+                    callback(success)
+                }
+            } else {
+                callback(success)
+            }
         }
     }
 
-    fun isUsernameTaken(username: String, callback: (Boolean) -> Unit) {
-        viewModelScope.launch {
-            val user = repository.getUserByUsername(username)
-            callback(user != null)
+    fun logout() {
+        _user.value = null
+    }
+
+    fun fetchUserData(username: String) {
+        userRepository.getUserDataByUsername(username) { userData ->
+            _user.value = userData
         }
     }
 }

@@ -1,15 +1,18 @@
-package com.marazanil.marasigeziyorum.viewmodel
+package com.marazanil.marasigeziyorum.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.marazanil.marasigeziyorum.data.repo.UserRepository
 
-class UserViewModelFactory(private val repository: UserRepository) : ViewModelProvider.Factory {
+class UserViewModelFactory : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return UserViewModel(repository) as T
+            return UserViewModel() as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
+
+
+

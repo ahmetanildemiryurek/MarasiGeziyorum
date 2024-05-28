@@ -1,4 +1,4 @@
-package com.marazanil.marasigeziyorum.data.db.service
+/*package com.marazanil.marasigeziyorum.data.db.service
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -12,4 +12,4 @@ interface UserDao {
 
     @Query("SELECT * FROM users WHERE username = :username")
      fun getUserByUsername(username: String): User?
-}
+} */

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item1"
+        android:title="Doğal Güzellikler" />
+    <item
+        android:id="@+id/menu_item2"
+        android:title="Su Oluşumları" />
+    <item
+        android:id="@+id/menu_item3"
+        android:title="Ulusal Parklar" />
+    <item
+        android:id="@+id/menu_item4"
+        android:title="Kaleler" />
+    <item
+        android:id="@+id/menu_item5"
+        android:title="Kutsal Yerler" />
+    <item
+        android:id="@+id/menu_item6"
+        android:title="Tarihi Yerler" />
+    <item
+        android:id="@+id/menu_item7"
+        android:title="Müzeler" />
+
+</menu>
