@@ -1,4 +1,5 @@
 package com.marazanil.marasigeziyorum.view.ui.fragment.placeListFragment
+
 import android.os.Bundle
 import android.view.*
 import android.widget.PopupMenu
@@ -31,12 +32,14 @@ class PlacesFragment : Fragment() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // Observe the places LiveData and set the adapter
         placeViewModel.places.observe(viewLifecycleOwner, Observer { places ->
-            val adapter = PlaceAdapter(places)
+            val adapter = PlaceAdapter(places, requireContext())
             binding.recyclerView.adapter = adapter
         })
 
         placeViewModel.fetchAllPlaces()
+
 
         // Set up the popup menu
         binding.btnPopupMenu.setOnClickListener { v ->

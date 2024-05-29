@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <!-- Place data binding variable -->
+        <variable
+            name="place"
+            type="com.marazanil.marasigeziyorum.data.db.entity.Place" />
+        <variable
+            name="handler"
+            type="com.marazanil.marasigeziyorum.view.ui.adapter.PlaceAdapter.PlaceViewHolder" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -23,7 +28,8 @@
                 android:id="@+id/placeImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:imageUrl="@{place.imageUrl}" />
 
             <TextView
                 android:id="@+id/placeName"
@@ -31,14 +37,24 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:text="@{place.name}" />
 
             <TextView
                 android:id="@+id/placeDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                android:text="@{place.description}" />
+
+            <Button
+                android:id="@+id/btnNavigate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Buraya Git"
+                android:onClick="@{() -> handler.onNavigateClick(place)}" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
