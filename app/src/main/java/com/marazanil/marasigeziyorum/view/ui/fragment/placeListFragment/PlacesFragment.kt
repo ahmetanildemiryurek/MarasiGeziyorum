@@ -1,5 +1,6 @@
 package com.marazanil.marasigeziyorum.view.ui.fragment.placeListFragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.PopupMenu
@@ -7,9 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.marazanil.marasigeziyorum.view.ui.fragment.homeFragment.HomeFragment
+import com.marazanil.marasigeziyorum.view.ui.fragment.ProfileFragment.ProfileFragment
 import com.marazanil.marasigeziyorum.R
 import com.marazanil.marasigeziyorum.databinding.FragmentPlacesBinding
 import com.marazanil.marasigeziyorum.view.ui.adapter.PlaceAdapter
+import com.marazanil.marasigeziyorum.view.ui.fragment.loginFragment.LoginFragment
 import com.marazanil.marasigeziyorum.viewModel.PlaceViewModel
 import com.marazanil.marasigeziyorum.viewModel.PlaceViewModelFactory
 
@@ -40,7 +44,6 @@ class PlacesFragment : Fragment() {
 
         placeViewModel.fetchAllPlaces()
 
-
         // Set up the popup menu
         binding.btnPopupMenu.setOnClickListener { v ->
             val popup = PopupMenu(requireContext(), v)
@@ -63,22 +66,22 @@ class PlacesFragment : Fragment() {
                         true
                     }
                     R.id.menu_item4 -> {
-                        // Filter for restaurants
+                        // Filter for castles
                         placeViewModel.fetchCastles()
                         true
                     }
                     R.id.menu_item5 -> {
-                        // Filter for restaurants
+                        // Filter for holy places
                         placeViewModel.fetchHolyPlaces()
                         true
                     }
                     R.id.menu_item6 -> {
-                        // Filter for restaurants
+                        // Filter for historical places
                         placeViewModel.fetchHistoricalPlaces()
                         true
                     }
                     R.id.menu_item7 -> {
-                        // Filter for restaurants
+                        // Filter for museums
                         placeViewModel.fetchMuseum()
                         true
                     }
@@ -87,6 +90,41 @@ class PlacesFragment : Fragment() {
             }
             popup.show()
         }
+
+        // Set up bottom navigation
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    // Home action
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Profile action
+                    replaceFragment(ProfileFragment())
+                    true
+                }
+                R.id.nav_logout -> {
+                    // Logout and navigate to login screen
+                    logout()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun logout() {
+        // Logout action
+        val intent = Intent(activity, LoginFragment::class.java)
+        startActivity(intent)
+        activity?.finish()
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 
     override fun onDestroyView() {

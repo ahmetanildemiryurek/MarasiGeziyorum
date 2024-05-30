@@ -45,6 +45,9 @@ class RegisterFragment : Fragment() {
                 }
             }
         }
+        binding.btnTurnBackLoginPage.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
     }
 
     override fun onDestroyView() {

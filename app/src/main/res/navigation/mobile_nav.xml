@@ -30,6 +30,20 @@
     </fragment>
 
     <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.marazanil.marasigeziyorum.view.ui.fragment.loginFragment.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/actionLoginFragmentToMainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.marazanil.marasigeziyorum.view.MainActivity"
+        android:label="MainActivity" />
+
+    <fragment
         android:id="@+id/fragmentRegister"
         android:name="com.marazanil.marasigeziyorum.view.ui.fragment.registerFragment.RegisterFragment"
         android:label="fragment_register"
@@ -40,6 +54,9 @@
         <action
             android:id="@+id/action_fragmentRegister_to_fragmentLoginPage"
             app:destination="@id/fragmentLogin" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
