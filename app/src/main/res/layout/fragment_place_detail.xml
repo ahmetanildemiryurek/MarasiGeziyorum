@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.ui.fragment.placesDetail.PlaceDetailFragment">
 
     <data>
-        <!-- Bindings -->
+        <!-- ViewModel binding or other data binding variables can be defined here -->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:foregroundGravity="center"
-        android:textAlignment="center">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
+        <!-- ImageView for Place Image -->
         <ImageView
+            android:layout_marginTop="400px"
             android:id="@+id/placeImageView"
             android:layout_width="0dp"
-            android:layout_height="280dp"
+            android:layout_height="200dp"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- TextView for Place Name -->
         <TextView
             android:id="@+id/placeNameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@id/placeImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="16dp" />
 
+        <!-- TextView for Place Description -->
         <TextView
             android:id="@+id/placeDescriptionTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@id/placeNameTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" />
 
+        <!-- Button to Open Google Maps -->
         <Button
-            android:id="@+id/btnReadMore"
+            android:id="@+id/btnOpenMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Devamını Oku"
+            android:text="Buraya Git"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
             app:layout_constraintTop_toBottomOf="@id/placeDescriptionTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <!-- Button to Open Google Maps -->
+            android:layout_marginTop="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

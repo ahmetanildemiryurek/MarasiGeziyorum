@@ -4,7 +4,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="place_image" />
-    <string name="more_options">Fazlası İçin</string>
+    <string name="more_options">Kategoriler</string>
     <string name="places_screen_title">Kahramanmaraş\'ı Geziyorum</string>
+    <string name="api_key">223af78c25b49c938729a1d8cd848b95</string>
 
 </resources>

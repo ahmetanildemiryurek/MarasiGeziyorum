@@ -12,7 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Weather Button -->
+
         <!-- Title TextView -->
+        <Button
+            android:id="@+id/btnWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="224dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/rounded_button"
+            android:text="Hava Durumu"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
@@ -26,21 +40,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"/>
 
-        <!-- ImageButton for Popup Menu -->
-        <ImageButton
+        <!-- Button for Popup Menu -->
+
+        <!-- RecyclerView -->
+
+        <Button
             android:id="@+id/btnPopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_more_vert"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_button"
             android:contentDescription="@string/more_options"
-            app:tint="#80CBC4"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/more_options"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"/>
+            app:layout_constraintHorizontal_bias="0.235"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-        <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"

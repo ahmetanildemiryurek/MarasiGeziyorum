@@ -63,6 +63,18 @@
         android:id="@+id/fragmentPlaces"
         android:name="com.marazanil.marasigeziyorum.view.ui.fragment.placeListFragment.PlacesFragment"
         android:label="fragment_places"
-        tools:layout="@layout/fragment_places" />
+        tools:layout="@layout/fragment_places">
+        <action
+            android:id="@+id/action_fragmentPlaces_to_placeDetailFragment"
+            app:destination="@id/placeDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/placeDetailFragment"
+        android:name="com.marazanil.marasigeziyorum.view.ui.fragment.placesDetail.PlaceDetailFragment"
+        android:label="fragment_place_detail"
+        tools:layout="@layout/fragment_place_detail" />
+
+
 
 </navigation>
